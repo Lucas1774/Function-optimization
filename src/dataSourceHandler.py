@@ -1,4 +1,5 @@
 import sys
+from typing import Dict
 import pandas as pd
 from constants import Constants
 
@@ -14,7 +15,7 @@ class DataSourceHandler:
             print(e)
             sys.exit(1)
 
-    def get_file_path():
+    def get_file_path() -> str:
         constants = Constants()
         if len(sys.argv) == 2:
             return sys.argv[1]
@@ -24,7 +25,7 @@ class DataSourceHandler:
             print("Usage: functionOptimizer.py <file_name>")
             sys.exit(1)
 
-    def parse(input_file):
+    def parse(input_file) -> Dict:
         constants = Constants()
         processed_data = {}
         for sheet_name, sheet_data in input_file.items():
@@ -34,17 +35,16 @@ class DataSourceHandler:
             for table in constants.INDEXES[sheet_name]:
                 start_row, start_col = constants.INDEXES[sheet_name][table][0]
                 end_row, end_col = constants.INDEXES[sheet_name][table][1]
-
-                table_df = sheet_data.iloc[
-                    start_row - 1 : end_row - 1, start_col - 1 : end_col
-                ]
+                table_df = pd.DataFrame(
+                    sheet_data.iloc[
+                        start_row - 1 : end_row - 1, start_col - 1 : end_col
+                    ]
+                )
                 table_df.columns = sheet_data.values[
                     start_row - 2, start_col - 1 : end_col
                 ].tolist()
                 table_df.index = range(1, len(table_df.index) + 1)
 
-                if table not in processed_data[sheet_name]:
-                    processed_data[sheet_name][table] = []
+                processed_data[sheet_name][table] = table_df
 
-                processed_data[sheet_name][table].append(table_df)
         return processed_data
