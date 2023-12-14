@@ -11,6 +11,8 @@ class Constants:
         },
     }
 
+    _CROSS_PROBABILITY = 0.47
+
     @property
     def FILE_PATH(self):
         return self._FILE_PATH
@@ -18,3 +20,7 @@ class Constants:
     @property
     def INDEXES(self):
         return self._INDEXES
+
+    @property
+    def CROSS_PROBABILITY(self):
+        return self._CROSS_PROBABILITY
