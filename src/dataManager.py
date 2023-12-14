@@ -4,12 +4,14 @@ from excelData import ExcelData
 
 
 class DataManager:
+    @staticmethod
     def print(data: ExcelData):
         print(data.get_population("variante-1"))
         print(data.get_random_numbers("variante-1"))
         print(data.get_population("variante-2"))
         print(data.get_random_numbers("variante-2"))
 
+    @staticmethod
     def do_selection_variant_1(data: ExcelData):
         population_data = data.get_population("variante-1")
 
@@ -27,7 +29,7 @@ class DataManager:
         )
         data.set_selection_data("variante-1", selection_data)
 
-        selected_individuals = []
+        selected_individuals_data = []
         for _ in range(8):
             random_number = data.get_next_random("variante-1", "de 0 a 1")
             index = (
@@ -35,15 +37,21 @@ class DataManager:
             ).idxmax()
 
             selected_individual = selection_data.loc[index, "individuals"]
-            selected_individuals.append(selected_individual)
+            selected_individuals_data.append(selected_individual)
+
+        selected_individuals = pd.DataFrame(
+            {"Selected Individuals": selected_individuals_data}
+        )
+        selected_individuals.index = range(1, len(selected_individuals) + 1)
         data.set_selected_individuals("variante-1", selected_individuals)
 
+    @staticmethod
     def do_cross_variant_1(data: ExcelData):
         constants = Constants()
         selected_individuals = data.get_selected_individuals("variante-1")
         pairs = [
-            (selected_individuals[i], selected_individuals[i + 1])
-            for i in range(0, len(selected_individuals), 2)
+            (selected_individuals.loc[i, "Selected Individuals"], selected_individuals.loc[i + 1, "Selected Individuals"])
+            for i in range(1, len(selected_individuals) + 1, 2)
         ]
 
         is_crossing_array = [
@@ -62,6 +70,7 @@ class DataManager:
         crossing_by_pairs.index = range(1, len(crossing_by_pairs) + 1)
         data.set_crossing_by_pairs("variante-1", crossing_by_pairs)
 
+    @staticmethod
     def do_next_generation_variant_1(data: ExcelData):
         population_data = data.get_population("variante-1")
         crossing_by_pairs = data.get_crossing_by_pairs("variante-1")
@@ -79,7 +88,7 @@ class DataManager:
             for i in range(
                 1, len(population_data.columns) - 1
             ):  # Exclude the first and last columns
-                if i < first_chromosome or first_chromosome is 0:
+                if i < first_chromosome or first_chromosome == 0:
                     first_child.append(population_data.iloc[first_parent - 1, i])
                     second_child.append(population_data.iloc[second_parent - 1, i])
                 else:
