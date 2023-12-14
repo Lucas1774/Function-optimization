@@ -23,32 +23,32 @@ class ExcelData:
     def get_data(self) -> Dict:
         return self.data
 
-    def get_population(self, variant) -> DataFrame:
+    def get_population(self, variant: str) -> DataFrame:
         return self.data[variant]["POPULATION"]
 
-    def get_random_numbers(self, variant) -> DataFrame:
+    def get_random_numbers(self, variant: str) -> DataFrame:
         return self.data[variant]["RANDOM_NUMBERS"]
 
-    def set_selection_data(self, variant, data: DataFrame):
-        self.data[variant]["SELECTION"] = data
+    def set_selection_data(self, variant: str, selection_data: DataFrame):
+        self.data[variant]["SELECTION"] = selection_data
 
-    def get_selection_data(self, variant) -> DataFrame:
+    def get_selection_data(self, variant: str) -> DataFrame:
         return self.data[variant]["SELECTION"]
 
-    def set_selected_individuals(self, variant, data: DataFrame):
-        self.data[variant]["SELECTED_INDIVIDUALS"] = data
+    def set_selected_individuals(self, variant: str, selected_individuals: DataFrame):
+        self.data[variant]["SELECTED_INDIVIDUALS"] = selected_individuals
 
-    def get_selected_individuals(self, variant) -> DataFrame:
+    def get_selected_individuals(self, variant: str) -> DataFrame:
         return self.data[variant]["SELECTED_INDIVIDUALS"]
 
-    def set_crossing_by_pairs(self, variant, data: DataFrame):
-        self.data[variant]["CROSSING_BY_PAIRS"] = data
+    def set_crossing_by_pairs(self, variant: str, crossing_data: DataFrame):
+        self.data[variant]["CROSSING_BY_PAIRS"] = crossing_data
 
-    def get_crossing_by_pairs(self, variant) -> DataFrame:
+    def get_crossing_by_pairs(self, variant: str) -> DataFrame:
         return self.data[variant]["CROSSING_BY_PAIRS"]
 
-    def set_next_generation(self, variant, data: DataFrame):
-        self.data[variant]["NEXT_GENERATION"] = data
+    def set_next_generation(self, variant: str, next_generation_data: DataFrame):
+        self.data[variant]["NEXT_GENERATION"] = next_generation_data
 
-    def get_next_generation(self, variant) -> DataFrame:
+    def get_next_generation(self, variant: str) -> DataFrame:
         return self.data[variant]["NEXT_GENERATION"]
