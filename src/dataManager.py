@@ -87,7 +87,7 @@ class DataManager:
 
             for i in range(
                 1, len(population_data.columns) - 1
-            ):  # Exclude the first and last columns
+            ):
                 if i < first_chromosome or first_chromosome == 0:
                     first_child.append(population_data.iloc[first_parent - 1, i])
                     second_child.append(population_data.iloc[second_parent - 1, i])
