@@ -52,3 +52,25 @@ class ExcelData:
 
     def get_next_generation(self, variant: str) -> DataFrame:
         return self.data[variant]["NEXT_GENERATION"]
+
+    def set_mutated_genes(self, variant: str, mutated_genes: DataFrame):
+        self.data[variant]["MUTATED_GENES"] = mutated_genes
+
+    def get_mutated_genes(self, variant: str) -> DataFrame:
+        return self.data[variant]["MUTATED_GENES"]
+
+    def set_next_generation_mutated(
+        self, variant: str, next_generation_mutated: DataFrame
+    ):
+        self.data[variant]["NEXT_GENERATION_MUTATED"] = next_generation_mutated
+
+    def get_next_generation_mutated(self, variant: str) -> DataFrame:
+        return self.data[variant]["NEXT_GENERATION_MUTATED"]
+
+    def set_next_generation_finished(
+        self, variant: str, next_generation_finished: DataFrame
+    ):
+        self.data[variant]["NEXT_GENERATION_FINISHED"] = next_generation_finished
+
+    def get_next_generation_finished(self, variant: str) -> DataFrame:
+        return self.data[variant]["NEXT_GENERATION_FINISHED"]
