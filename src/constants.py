@@ -14,6 +14,12 @@ class Constants:
     _CROSS_PROBABILITY = 0.47
     _MUTATION_PROBABILITY = 0.29
 
+    _NUMBER_OF_TOURNAMENTS = 4
+    _CROSS_PROBABILITY_V2 = 0.73
+    _MUTATION_PROBABILITY_V2 = 0.17
+    _MIN_MUTATION_VALUE = -9
+    _MAX_MUTATION_VALUE = 7
+
     @property
     def FILE_PATH(self):
         return self._FILE_PATH
@@ -29,3 +35,23 @@ class Constants:
     @property
     def MUTATION_PROBABILITY(self):
         return self._MUTATION_PROBABILITY
+    
+    @property
+    def NUMBER_OF_TOURNAMENTS(self):
+        return self._NUMBER_OF_TOURNAMENTS
+    
+    @property
+    def CROSS_PROBABILITY_V2(self):
+        return self._CROSS_PROBABILITY_V2
+    
+    @property
+    def MUTATION_PROBABILITY_V2(self):
+        return self._MUTATION_PROBABILITY_V2
+    
+    @property
+    def MIN_MUTATION_VALUE(self):
+        return self._MIN_MUTATION_VALUE
+    
+    @property
+    def MAX_MUTATION_VALUE(self):
+        return self._MAX_MUTATION_VALUE
