@@ -29,12 +29,6 @@ class ExcelData:
     def get_random_numbers(self, variant: str) -> DataFrame:
         return self.data[variant]["RANDOM_NUMBERS"]
 
-    def set_selection_data(self, variant: str, selection_data: DataFrame):
-        self.data[variant]["SELECTION"] = selection_data
-
-    def get_selection_data(self, variant: str) -> DataFrame:
-        return self.data[variant]["SELECTION"]
-
     def set_selected_individuals(self, variant: str, selected_individuals: DataFrame):
         self.data[variant]["SELECTED_INDIVIDUALS"] = selected_individuals
 
