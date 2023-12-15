@@ -1,4 +1,4 @@
-from dataManager import DataManager
+from dataManagerV1 import DataManagerV1
 from dataSourceHandler import DataSourceHandler
 from excelData import ExcelData
 
@@ -10,22 +10,39 @@ def main():
 
     print("-------------Imported data-------------")
     data = ExcelData(input_file)
-    DataManager.print(data)
+    DataManagerV1.print(data)
     print()
 
     print("-------------Selected individuals for variant-1-------------")
-    DataManager.do_selection_variant_1(data)
+    DataManagerV1.do_selection(data)
     print(data.get_selected_individuals("variante-1"))
     print()
 
     print("-------------Crossing data for variant-1-------------")
-    DataManager.do_cross_variant_1(data)
+    DataManagerV1.do_cross(data)
     print(data.get_crossing_by_pairs("variante-1"))
     print()
 
-    print("-------------Next generation's genes-------------")
-    DataManager.do_next_generation_variant_1(data)
+    print("-------------Next generation's genes for variant-1-------------")
+    DataManagerV1.do_next_generation(data)
     print(data.get_next_generation("variante-1"))
+    print()
+
+    print("-------------Mutated genes for variant-1-------------")
+    DataManagerV1.do_mutation(data)
+    print(data.get_mutated_genes("variante-1"))
+    print()
+
+    print(
+        "-------------Next generation's genes after mutation for variant-1-------------"
+    )
+    DataManagerV1.do_next_generation_finish(data)
+    print(data.get_next_generation_mutated("variante-1"))
+    print()
+
+    print("-------------Next generation for variant-1-------------")
+    DataManagerV1.do_replacement(data)
+    print(data.get_next_generation_finished("variante-1"))
     print()
 
 

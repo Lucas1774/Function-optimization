@@ -12,6 +12,7 @@ class Constants:
     }
 
     _CROSS_PROBABILITY = 0.47
+    _MUTATION_PROBABILITY = 0.29
 
     @property
     def FILE_PATH(self):
@@ -24,3 +25,7 @@ class Constants:
     @property
     def CROSS_PROBABILITY(self):
         return self._CROSS_PROBABILITY
+
+    @property
+    def MUTATION_PROBABILITY(self):
+        return self._MUTATION_PROBABILITY
