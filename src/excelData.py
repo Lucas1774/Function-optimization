@@ -5,7 +5,7 @@ from dataSourceHandler import DataSourceHandler
 
 
 class ExcelData:
-    def __init__(self, input_file: str):
+    def __init__(self, input_file: Dict[str, DataFrame]):
         self.data = DataSourceHandler.parse(input_file)
         self.iterators = {}
 
