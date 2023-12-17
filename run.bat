@@ -1,3 +1,3 @@
-.\functionOptimizer.exe input.xls
+.\functionOptimizer.exe input.xlsx
 
 PAUSE

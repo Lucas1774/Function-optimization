@@ -4,5 +4,6 @@ previous
 *.pdf
 *.docx
 *.xls
-!*.template.xls
+*.xlsx
+!*.template.xlsx
 notes.txt

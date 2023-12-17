@@ -141,7 +141,7 @@ class DataManagerV2(IDataManager):
         best_parents.columns.values[0] = "Individual"
 
         next_generation_mutated = pd.concat(
-            [best_parents, next_generation_mutated], ignore_index=True
+            [next_generation_mutated, best_parents], ignore_index=True
         )
 
         data.set_next_generation_finished("variante-2", next_generation_mutated)

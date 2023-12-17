@@ -28,7 +28,6 @@ class DataManagerV1(IDataManager):
                 ).cumsum(),
             }
         )
-        data.set_selection_data("variante-1", selection_data)
 
         selected_individuals_data = []
         for _ in range(8):
