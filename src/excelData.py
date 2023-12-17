@@ -23,6 +23,11 @@ class ExcelData:
     def get_data(self) -> Dict:
         return self.data
 
+    def set_data(self, variant: str, input_file: Dict[str, DataFrame]):
+        self.data[variant]["POPULATION"] = DataSourceHandler.parse_next_gen(
+            variant, input_file, self.data[variant]["POPULATION"]
+        )
+
     def get_population(self, variant: str) -> DataFrame:
         return self.data[variant]["POPULATION"]
 
